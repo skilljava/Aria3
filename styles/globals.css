@@ -11,7 +11,7 @@
   }
 
   body {
-    @apply text-gray-800;
+    @apply text-gray-800 bg-white;
   }
 
   h1 {
@@ -43,6 +43,11 @@
     font-size: 1rem;
     line-height: 1.6;
   }
+
+  /* Link default */
+  a {
+    @apply text-orange-600 hover:underline;
+  }
 }
 
 @layer utilities {
@@ -69,4 +74,74 @@
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
   }
+}
+
+/* ---------------------- */
+/*       DARK MODE        */
+/* ---------------------- */
+
+/* Note: Tailwind should be configured for class-based dark mode (darkMode: 'class') */
+
+html.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+html.dark a {
+  @apply text-orange-300;
+}
+
+/* Headings and paragraphs */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark p {
+  @apply text-gray-100;
+}
+
+/* Header specific */
+html.dark header {
+  background: rgba(0,0,0,0.45);
+}
+
+/* Glass elements in dark */
+html.dark .glass {
+  background: rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 165, 0, 0.15);
+  color: #eaeaea;
+}
+
+/* If a special glass-dark exists, keep accent */
+html.dark .glass-dark {
+  background: rgba(255, 140, 0, 0.08);
+  border-color: rgba(255, 165, 0, 0.24);
+}
+
+/* Hover behaviour in dark */
+html.dark .glass-hover:hover {
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.25);
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-md transition;
+}
+
+.btn-primary {
+  @apply bg-orange-500 text-white;
+}
+
+html.dark .btn-primary {
+  @apply bg-orange-500 text-gray-900;
+}
+
+/* Utility to ease toggled icon colors */
+.theme-icon {
+  @apply w-6 h-6;
+}
+
+/* Small fallback for borders */
+html.dark .border-fallback {
+  border-color: rgba(255,255,255,0.06);
 }
