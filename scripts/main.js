@@ -41,8 +41,11 @@ if (yearElement) {
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        // skip empty hash
+        const href = this.getAttribute('href');
+        if (href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
@@ -59,10 +62,12 @@ const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        header.style.boxShadow = '0 4px 20px rgba(255, 165, 0, 0.2)';
-    } else {
-        header.style.boxShadow = '0 8px 32px rgba(255, 165, 0, 0.1)';
+    if (header) {
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 20px rgba(255, 165, 0, 0.2)';
+        } else {
+            header.style.boxShadow = '0 8px 32px rgba(255, 165, 0, 0.1)';
+        }
     }
     
     lastScroll = currentScroll;
@@ -93,4 +98,34 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = `all 0.6s ease ${index * 0.1}s`;
         observer.observe(el);
     });
+
+    // --------------------------
+    // Dark Mode Toggle
+    // --------------------------
+    const themeToggleBtn = document.getElementById("themeToggle");
+
+    // Load saved theme
+    try {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+            if (themeToggleBtn) themeToggleBtn.setAttribute('aria-pressed', 'true');
+        }
+    } catch (e) {
+        console.warn('Could not access localStorage for theme.', e);
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+            const isDark = document.documentElement.classList.contains("dark");
+            themeToggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+
+            try {
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+            } catch (e) {
+                console.warn('Could not save theme preference.', e);
+            }
+        });
+    }
 });
