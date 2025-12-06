@@ -1,0 +1,321 @@
+/* Status Page Styles */
+
+.page-header {
+    padding: 100px 0 40px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.125rem;
+    color: var(--text-gray);
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+}
+
+.last-update {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.overall-status {
+    padding: 2rem 0 4rem;
+}
+
+.status-box {
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.status-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-icon.operational {
+    background: linear-gradient(135deg, #10B981, #34D399);
+    color: white;
+}
+
+.operational-text {
+    color: #10B981;
+}
+
+.status-box h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.status-box p {
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.servers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.server-card {
+    padding: 2rem;
+    border-radius: 24px;
+}
+
+.server-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.server-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.server-info {
+    flex-grow: 1;
+}
+
+.server-info h3 {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.server-info p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-badge.operational {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.status-badge.maintenance {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.server-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--amber));
+    transition: width 0.5s ease;
+}
+
+.services-list {
+    padding: 2rem;
+    border-radius: 24px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease;
+}
+
+.service-item:last-child {
+    margin-bottom: 0;
+}
+
+.service-item:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.service-name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.operational-icon {
+    color: #10B981;
+}
+
+.uptime-box {
+    padding: 3rem 2rem;
+    border-radius: 24px;
+}
+
+.uptime-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.uptime-main {
+    text-align: center;
+}
+
+.uptime-percentage {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.uptime-days {
+    text-align: center;
+}
+
+.uptime-days-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.uptime-label {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.uptime-chart {
+    margin-top: 2rem;
+}
+
+.chart-bars {
+    display: flex;
+    gap: 4px;
+    height: 80px;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.chart-bar {
+    flex: 1;
+    background: linear-gradient(to top, #10B981, #34D399);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.chart-bar:hover {
+    background: linear-gradient(to top, var(--orange), var(--amber));
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.support-box {
+    padding: 4rem 2rem;
+    border-radius: 32px;
+    text-align: center;
+    border: 1px solid rgba(255, 191, 0, 0.2);
+}
+
+.support-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.support-box p {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .servers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .server-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .uptime-percentage {
+        font-size: 2.5rem;
+    }
+
+    .uptime-days-value {
+        font-size: 1.5rem;
+    }
+
+    .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
